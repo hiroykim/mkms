@@ -24,3 +24,15 @@
 	
 06. kibana 기동
 	
+07. [ROOT]python3.6설치
+  1. Python3.6 Install By tgz
+   - ./configure
+     -- yum install gcc glibc glibc-common gd gd-devel -y
+   - make;make install
+   - which python3.6
+    
+  2. Install by Yum
+   - yum install https://centos7.iuscommunity.org/ius-release.rpm[IUS Repository]
+   - yum update
+   - yum search python36
+   - yum install -y python36u python36u-devel python36u-libs python36u-pip
