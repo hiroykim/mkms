@@ -47,6 +47,9 @@
    - yum install -y python36u python36u-devel python36u-libs python36u-pip
    
   3. yum install -y git
+    - https://pinedance.github.io/blog/2019/05/29/Git-Credential (git설정참고)
+    - git clone https://hiroykim:xxxxxx@github.com/hiroykim/mkms.git
+    - git config --global --list
 
 08. Dev Env Install
   - python3.6 -m venv venv
