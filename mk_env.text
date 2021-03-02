@@ -25,13 +25,22 @@
 06. kibana 기동
 	
 07. [ROOT]python3.6설치, git 설치
+  0. open_ssl 설치
+    -wget https://www.openssl.org/source/openssl-1.0.2o.tar.gz
+    -mv openssl-1.0.2 /usr/src;cd /usr/src
+    -./config shared --prefix=/usr/local/
+    -make;make install
+    -mkdir /usr/src/lib
+    -cp ./*.{so,so.1.0.0,a,pc} ./lib
+    
   1. Python3.6 Install By tgz
-   - ./configure
-     -- yum install gcc glibc glibc-common gd gd-devel -y
+   -yum install gcc glibc glibc-common gd gd-devel  -y
+   -yum install yum install openssl-devel build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev -y
+   - ./configure --with-openssl=/usr/src/openssl-1.0.2o --enable-optimizations  
    - make;make install
    - which python3.6
     
-  2. Install by Yum
+  2. Install by Yum(1번의 대안)
    - yum install https://centos7.iuscommunity.org/ius-release.rpm[IUS Repository]
    - yum update
    - yum search python36
