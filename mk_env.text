@@ -1,11 +1,26 @@
 01. vmware 설치
+
 02. 보안 설정 제거, hostname설정
             iptables -F; iptables restart
 	systemctl stop firewalld.service
             systemctl disable firewalld.service
 	sestatus;vi /etc/selinux/config
             vi /etc/hostname : mkms01
+
 03. ssh,ftp 설정
+	yum install -y vsftpd
+	systemctl enable vsftpd;systemctl start vsftpd;systemctl status vsftpd
+	/etc/vsftpd/user_list,ftpusers에서 root 삭제
+
 
 04. 개발환경설정
-	/application/mkms
+	adduser dmnmkms
+	/application/
+	/logs/
+	/data/
+	
+05. ElasticSearch 기동
+	https://esbook.kimjmin.net/03-cluster/3.1-cluster-settings 참고
+	
+06. kibana 기동
+	
