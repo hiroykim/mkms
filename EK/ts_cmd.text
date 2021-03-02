@@ -1,0 +1,17 @@
+$ bin/elasticsearch -Ecluster.name=clust-mkms -Enode.name=ndkms-1
+
+$ bin/elasticsearch -Ecluster.name=clust-mkms -Enode.name=ndkms-2
+
+
+
+-------------------kibana 문제 해결------------
+
+
+
+curl localhost:9201
+
+curl -XDELETE 'http://localhost:9201/.kibana'  --header "content-type: application/JSON"
+
+curl -XDELETE 'http://localhost:9201/.kibana_1'  --header "content-type: application/JSON"
+
+curl -XDELETE 'http://localhost:9201/.kibana_task_manager_1'  --header "content-type: application/JSON"
