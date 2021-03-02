@@ -36,3 +36,13 @@
    - yum update
    - yum search python36
    - yum install -y python36u python36u-devel python36u-libs python36u-pip
+
+08. Dev Env Install
+  - python3.6 -m venv venv
+  - /bashrc
+    export PROJECT_HOME=/application/mkms
+    export ES1_HOME=/application/elasticsearch1
+    export ES2_HOME=/application/elasticsearch2
+    source venv/bin/activate
+    
+09. khaiii Install
