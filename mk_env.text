@@ -24,7 +24,7 @@
 	
 06. kibana 기동
 	
-07. [ROOT]python3.6설치
+07. [ROOT]python3.6설치, git 설치
   1. Python3.6 Install By tgz
    - ./configure
      -- yum install gcc glibc glibc-common gd gd-devel -y
@@ -36,6 +36,8 @@
    - yum update
    - yum search python36
    - yum install -y python36u python36u-devel python36u-libs python36u-pip
+   
+  3. yum install -y git
 
 08. Dev Env Install
   - python3.6 -m venv venv
