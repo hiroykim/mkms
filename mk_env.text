@@ -88,6 +88,7 @@
     ./configure;make;make check;su;#make install
   - wget https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz
     ./autogen.sh;configure;make;su;#make install;#ldconfig
+  - pip install html5lib
 
 
 
