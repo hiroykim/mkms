@@ -60,3 +60,17 @@
     source venv/bin/activate
     
 09. khaiii Install
+  - pip install cmake or cmake3, cmake --version (cmake 3.10 이상)
+  - (root)yum -y install gcc-c++ (gcc --version, gcc4.9이상 필요함)
+     yum install -y centos-release-scl
+     yum install -y devtoolset-7-gcc*
+     scl enable devtoolset-7 bash
+     which gcc
+     gcc --version
+     .bashrc -> source /opt/rh/devtoolset-7/enable
+  - cd khaiii, mkdir build,cd build, cmake ..
+  - make all, make resource 
+    (#라지모델을 사용할 계획이라면,#make resource 말고 make large_resource)
+  - ./bin/khaiii --rsc-dir=./share/khaiii
+  - ctest
+  - make package_python;cd package_python;pip install .
