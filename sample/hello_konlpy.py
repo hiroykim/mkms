@@ -38,7 +38,7 @@ def okt_test():
 def khaiii_test():
     kai = KhaiiiApi()
     for word in kai.analyze("도움이 되셨다면 구독 꾸욱 눌러주세요~."):
-        print(type(word))
+        #print(type(word))
         print(word)
 
 def main():
