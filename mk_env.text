@@ -61,7 +61,7 @@
     
 09. khaiii Install
   - pip install cmake or cmake3, cmake --version (cmake 3.10 이상)
-  - (root)yum -y install gcc-c++ (gcc --version, gcc4.9이상 필요함)
+  - [ROOT]yum -y install gcc-c++ (gcc --version, gcc4.9이상 필요함)
      yum install -y centos-release-scl
      yum install -y devtoolset-7-gcc*
      scl enable devtoolset-7 bash
@@ -74,3 +74,33 @@
   - ./bin/khaiii --rsc-dir=./share/khaiii
   - ctest
   - make package_python;cd package_python;pip install .
+
+  10. libs 설치
+  - pip install kss
+  - pip install konlpy
+  - pip install mecab-python3
+  - [ROOT]bash <(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)
+  - git clone https://bitbucket.org/eunjeon/mecab-python-0.996.git
+    python setup.py build
+    python setup.py install
+    [ROOT]vi /etc/ld.so.conf <- /usr/local/lib 추가
+  - wget https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz
+    ./configure;make;make check;su;#make install
+  - wget https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz
+    ./autogen.sh;configure;make;su;#make install;#ldconfig
+
+
+
+99. pycharm Install
+
+  [ROOT]
+  yum install openssl-devel build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+
+  wget https://www.openssl.org/source/openssl-1.0.2o.tar.gz
+  mv openssl-1.0.2 /usr/src;cd /usr/src
+  ./config shared --prefix=/usr/local/
+  make;make install
+  mkdir /usr/src/lib
+  cp ./*.{so,so.1.0.0,a,pc} ./lib
+
+  ./configure --with-openssl=/usr/src/openssl-1.0.2o --enable-optimizations
