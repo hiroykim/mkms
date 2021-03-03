@@ -8,7 +8,8 @@ import time
 from konlpy.utils import pprint
 from konlpy.tag import Kkma
 from konlpy.tag import Okt
-#from konlpy.tag import Mecab
+from konlpy.tag import Mecab
+from khaiii import KhaiiiApi
 from datetime import date, datetime, timedelta
 
 def elapsed_time(start_time):
@@ -17,7 +18,7 @@ def elapsed_time(start_time):
     return required_time
 
 def mecab_test():
-    mecab = Mecab(dicpath=r"C:\mecab\mecab-ko-dic")
+    mecab = Mecab()
     print(mecab.morphs(u"도움이 되셨다면 구독 꾸욱 눌러주세요~."))
     print(mecab.nouns(u"도움이 되셨다면 구독 꾸욱 눌러주세요~."))
     print(mecab.pos(u"도움이 되셨다면 구독 꾸욱 눌러주세요~."))
@@ -34,16 +35,25 @@ def okt_test():
     print(okt.nouns("도움이 되셨다면 구독 꾸욱 눌러주세요~."))
     print(okt.pos("도움이 되셨다면 구독 꾸욱 눌러주세요~."))
 
+def khaiii_test():
+    kai = KhaiiiApi()
+    for word in kai.analyze("도움이 되셨다면 구독 꾸욱 눌러주세요~."):
+        print(type(word))
+        print(word)
+
 def main():
     st_tm = datetime.fromtimestamp(time.time())
-    kkma_test()
+    #kkma_test()
     print("kkma_test()===>st_time : {0}, ps_time : {1}".format(st_tm, elapsed_time(st_tm)))
     st_tm = datetime.fromtimestamp(time.time())
-    okt_test()
-    #print("okt_test()====>st_time : {0}, ps_time : {1}".format(st_tm, elapsed_time(st_tm)))
-    #st_tm = datetime.fromtimestamp(time.time())
-    #mecab_test()
-    #print("mecab_test()==>st_time : {0}, ps_time : {1}".format(st_tm, elapsed_time(st_tm)))
+    #okt_test()
+    print("okt_test()====>st_time : {0}, ps_time : {1}".format(st_tm, elapsed_time(st_tm)))
+    st_tm = datetime.fromtimestamp(time.time())
+    mecab_test()
+    print("mecab_test()==>st_time : {0}, ps_time : {1}".format(st_tm, elapsed_time(st_tm)))
+    st_tm = datetime.fromtimestamp(time.time())
+    khaiii_test()
+    print("khaiii_test()==>st_time : {0}, ps_time : {1}".format(st_tm, elapsed_time(st_tm)))
 
 if __name__ == "__main__":
 
