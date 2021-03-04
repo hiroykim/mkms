@@ -43,14 +43,15 @@
     yum list available | grep gcc
     yum search gcc
     yum install(remove) avr-gcc.x86_64
-1전송실패(vmware에서는 설치함)  
-===================================================================================================
+
     참고: https://bgreat.tistory.com/51
     yum install gmp gmp-devel mpfr mpfr-devel libmpc libmpc-devel
+1전송실패(vmware에서는 설치함, 아래는 실행안함.)  
+===================================================================================================
     ./configure --disable-multilib
      which gcc
      gcc --version
-     .bashrc -> source /opt/rh/devtoolset-7/enable
+    .bashrc -> source /opt/rh/devtoolset-7/enable
 ===================================================================================================
     다시 yum localinstall *.rpm이 성공함????????
     /home/dmnmkms/.hunter/_Base/Download를 압축한 Khaiii_Download.tgz를 copy하여 미리 생성
@@ -80,7 +81,6 @@
 ===================================================================================================
   - pip install html5lib
   - pip install flask
-
 
 
 99. pycharm Install
