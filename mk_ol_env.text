@@ -1,0 +1,115 @@
+01-03. sttapp1v설치
+  [root]
+    repos설정
+  [dmnmkms]
+    pip설정
+    git설정
+    secret설정
+
+
+04. 개발환경설정
+  adduser dmnmkms
+  /application/
+  /logs/
+  /data/
+	
+05. ElasticSearch 기동
+  [ol]
+  9200은 이미설치되어 있음.
+  9201로 1개만 기동 완료
+	
+06. kibana 기동
+  5601로 kibana 기동 완료
+	
+07. [ROOT]python3.6.8설치, git 설치   
+  1. Install by Yum(1번의 대안)
+   - yum search python36
+   - yum install -y python36
+
+08. Dev Env Install
+  - python3.6 -m venv venv
+  - pip install --upgrade pip
+  - /bashrc
+    export PROJECT_HOME=/application/mkms
+    export ES1_HOME=/application/elasticsearch1
+    export ES2_HOME=/application/elasticsearch2
+    source venv/bin/activate
+    export http_proxy=http://192.168.141.XX:12128
+    export https_proxy=http://192.168.141.XX:12128
+    
+09. khaiii Install
+  - pip install cmake, cmake --version (cmake 3.10 이상)
+  - [ROOT]yum -y install gcc-c++ (gcc --version, gcc4.9이상 필요함)
+    yum list available | grep gcc
+    yum search gcc
+    yum install(remove) avr-gcc.x86_64
+1전송실패(vmware에서는 설치함)  
+===================================================================================================
+    참고: https://bgreat.tistory.com/51
+    yum install gmp gmp-devel mpfr mpfr-devel libmpc libmpc-devel
+    ./configure --disable-multilib
+     which gcc
+     gcc --version
+     .bashrc -> source /opt/rh/devtoolset-7/enable
+===================================================================================================
+    다시 yum localinstall *.rpm이 성공함????????
+    /home/dmnmkms/.hunter/_Base/Download를 압축한 Khaiii_Download.tgz를 copy하여 미리 생성
+  - cd khaiii, mkdir build,cd build, cmake ..
+  - make all, make resource 
+    (#라지모델을 사용할 계획이라면,#make resource 말고 make large_resource)
+  - ./bin/khaiii --rsc-dir=./share/khaiii
+  - ctest
+  - make package_python;cd package_python;pip install .
+
+  10. libs 설치
+  - pip install kss
+  - pip install konlpy
+  - pip install mecab-python3
+
+2전송실패  
+===================================================================================================
+  - [ROOT]bash <(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)
+  - git clone https://bitbucket.org/eunjeon/mecab-python-0.996.git
+    python setup.py build
+    python setup.py install
+    [ROOT]vi /etc/ld.so.conf <- /usr/local/lib 추가
+  - wget https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz
+    ./configure;make;make check;su;#make install
+  - wget https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz
+    ./autogen.sh;configure;make;su;#make install;#ldconfig
+===================================================================================================
+  - pip install html5lib
+  - pip install flask
+
+
+
+99. pycharm Install
+
+  [ROOT]
+  yum install openssl-devel build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+
+  wget https://www.openssl.org/source/openssl-1.0.2o.tar.gz
+  mv openssl-1.0.2 /usr/src;cd /usr/src
+  ./config shared --prefix=/usr/local/
+  make;make install
+  mkdir /usr/src/lib
+  cp ./*.{so,so.1.0.0,a,pc} ./lib
+
+  ./configure --with-openssl=/usr/src/openssl-1.0.2o --enable-optimizations
+
+100. YUM, PIP, R, GIT 명령어
+  1. yum
+    yum -y install gedit --downloadonly --downloaddir=/root/temp
+    yum localinstall *.rpm
+  2. pip
+    ./pip/pip.conf
+    pip -no-cache-dir download -d . requests
+    pip -no-index -find-index=. requests
+    pip freeze > requirements.txt; pip install -r requirements.txt
+  3. R
+    /usr/lib64/R/etc/Renviron
+    install.packages("wordcloud", destdir="/root/deployment", repos="https://cran.rstudio.com")
+    install.packages("wordclud_2.6.tar.gz", repos=NULL)
+  4. git
+    git config --global http.proxy xxx.xxx.xxx.xxx:xxxxx
+    git clone https://github.com/facebookresearch/flashlight.git
