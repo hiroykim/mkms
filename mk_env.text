@@ -109,7 +109,17 @@
 
 100. YUM, PIP, R, GIT 명령어
   1. yum
+    yum -y install gedit --downloadonly --downloaddir=/root/temp
+    yum localinstall *.rpm
   2. pip
+    ./pip/pip.conf
+    pip -no-cache-dir download -d . requests
+    pip -no-index -find-index=. requests
     pip freeze > requirements.txt; pip install -r requirements.txt
   3. R
+    /usr/lib64/R/etc/Renviron
+    install.packages("wordcloud", destdir="/root/deployment", repos="https://cran.rstudio.com")
+    install.packages("wordclud_2.6.tar.gz", repos=NULL)
   4. git
+    git config --global http.proxy xxx.xxx.xxx.xxx:xxxxx
+    git clone https://github.com/facebookresearch/flashlight.git
