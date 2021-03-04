@@ -90,8 +90,9 @@
     ./autogen.sh;configure;make;su;#make install;#ldconfig
   - pip install html5lib
   - pip install flask
-
-
+  - pip install supervisor 
+      echo_supervisord_conf > /application/mkms/conf/supervisord.conf
+      supervisord -c $PROJECT_HOME/conf/supervisord.conf
 
 99. pycharm Install
 
