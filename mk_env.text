@@ -57,6 +57,7 @@
     export PROJECT_HOME=/application/mkms
     export ES1_HOME=/application/elasticsearch1
     export ES2_HOME=/application/elasticsearch2
+    export LOG_HOME=/logs/mkms
     source venv/bin/activate
     
 09. khaiii Install
