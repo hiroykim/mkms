@@ -14,7 +14,7 @@
 06. kibana 기동
   5601로 kibana 기동 완료
 	
-07. [ROOT]python3.6.8설치, git 설치   
+07. [ROOT]python3.6.8설치
   1. Install by Yum
    - yum search python36
    - yum install -y python36
