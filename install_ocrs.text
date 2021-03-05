@@ -29,8 +29,6 @@
     export LOG_HOME=/logs/mkms
     source venv/bin/activate
     source /opt/rh/devtoolset-7/enable
-    export http_proxy=http://192.168.141.XX:12128
-    export https_proxy=http://192.168.141.XX:12128
     
 09. khaiii Install
   - pip install cmake, cmake --version (cmake 3.10 이상)
