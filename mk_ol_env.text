@@ -54,6 +54,8 @@
     .bashrc -> source /opt/rh/devtoolset-7/enable
 ===================================================================================================
     다시 yum localinstall *.rpm이 성공함????????
+    scl enable devtoolset-7 bash
+    source /opt/rh/devtoolset-7/enable
     /home/dmnmkms/.hunter/_Base/Download를 압축한 Khaiii_Download.tgz를 copy하여 미리 생성
     cp Khaiii_Download.tgz /home/dmnmkms/.hunter/_Base
   - cd khaiii, mkdir build,cd build, cmake ..
