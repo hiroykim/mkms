@@ -57,6 +57,9 @@
     export PROJECT_HOME=/application/mkms
     export ES1_HOME=/application/elasticsearch1
     export ES2_HOME=/application/elasticsearch2
+    export KIBANA_HOME=/application/kibana
+    export LOG_HOME=/logs/mkms
+    source /opt/rh/devtoolset-7/enable
     source venv/bin/activate
     
 09. khaiii Install
@@ -65,6 +68,7 @@
      yum install -y centos-release-scl
      yum install -y devtoolset-7-gcc*
      scl enable devtoolset-7 bash
+     source /opt/rh/devtoolset-7/enable
      which gcc
      gcc --version
      .bashrc -> source /opt/rh/devtoolset-7/enable
@@ -93,6 +97,7 @@
   - pip install supervisor 
       echo_supervisord_conf > /application/mkms/conf/supervisord.conf
       supervisord -c $PROJECT_HOME/conf/supervisord.conf
+  - pip install elasticsearch
 
 99. pycharm Install
 
