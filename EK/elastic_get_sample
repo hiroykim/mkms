@@ -7,19 +7,15 @@ GET mkms_qna_v001/_mapping?pretty
 
 POST /mkms_qna_v001/_doc/ID_20210306_01
 {
-  "SUBJECT": "입력테스트_1",
-  "URL": "URL입니다1.",
-  "subject": "매핑테스트1",
-  "url": "test1",
-  "CONTENT": "컨텐츠입니다1."
+  "SUBJECT": "입력테스트_111",
+  "URL": "URL입니다111.",
+  "CONTENT": "컨텐츠입니다111."
 }
 
 POST /mkms_qna_v001/_doc/ID_20210306_02
 {
   "SUBJECT": "입력테스트_2",
   "URL": "URL입니다2.",
-  "subject": "매핑테스트2",
-  "url": "test2",
   "CONTENT": "컨텐츠입니다2."
 }
 
