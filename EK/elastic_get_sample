@@ -1,0 +1,11 @@
+GET mkms_qna_v001/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /_cat/
+
+GET mkms_qna_v001
+GET mkms_qna_v001/_mapping
