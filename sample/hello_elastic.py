@@ -16,17 +16,29 @@ document = {
     },
     "mappings":{
         "properties": {
-            "ID": {
-                "type": "keyword"
-            },
             "SUBJECT": {
-                "type": "text"
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword"
+                    }
+                }
             },
             "URL": {
-                "type": "keyword"
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword"
+                    }
+                }
             },
             "CONTENT": {
-                "type": "text"
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword"
+                    }
+                }
             }
         }
     }
@@ -36,7 +48,7 @@ def do_something():
     if es.indices.exists(index='mkms_qna_v001'):
         print("Already existed index")
         es.indices.delete(index='mkms_qna_v001', ignore=[400, 404])
-        # es.indices.create(index='stt', body=document)
+        # es.indices.create(index='mkms_qna_v00', body=document)
     else:
         es.indices.create(index='mkms_qna_v001', body=document)
         # Max result window update
