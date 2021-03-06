@@ -57,6 +57,7 @@
     export PROJECT_HOME=/application/mkms
     export ES1_HOME=/application/elasticsearch1
     export ES2_HOME=/application/elasticsearch2
+    export KIBANA_HOME=/application/kibana
     source venv/bin/activate
     
 09. khaiii Install
@@ -93,6 +94,7 @@
   - pip install supervisor 
       echo_supervisord_conf > /application/mkms/conf/supervisord.conf
       supervisord -c $PROJECT_HOME/conf/supervisord.conf
+  - pip install elasticsearch
 
 99. pycharm Install
 
