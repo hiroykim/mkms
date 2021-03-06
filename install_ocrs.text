@@ -1,0 +1,65 @@
+01-03. [ROOT]OCR서버 설치
+    repos설정(sttapp1v의 /etc/yum.repo.d/epel.repo설정)
+
+04. 개발환경설정
+  adduser dmnmkms
+  /application/
+  /logs/
+  /data/
+	
+05. ElasticSearch 기동-> [ROOT]추후 커널파라미터수정해야함.
+  9200은 이미설치되어 있음.
+  9201로 1개만 기동 완료
+	
+06. kibana 기동
+  5601로 kibana 기동 완료
+	
+07. [ROOT]python3.6.8설치
+  1. Install by Yum
+   - yum search python36
+   - yum install -y python36
+
+08. Dev Env Install
+  - python3.6 -m venv venv
+  - pip install --upgrade pip
+  - /bashrc
+    export PROJECT_HOME=/application/mkms
+    export ES1_HOME=/application/elasticsearch1
+    export ES2_HOME=/application/elasticsearch2
+    export LOG_HOME=/logs/mkms
+    source venv/bin/activate
+    source /opt/rh/devtoolset-7/enable
+    
+09. khaiii Install
+  - pip install cmake, cmake --version (cmake 3.10 이상)
+  - [ROOT]yum -y install gcc-c++ (gcc --version, gcc4.9이상 필요함)
+    [ROOT]yum install gmp gmp-devel mpfr mpfr-devel libmpc libmpc-devel
+    [ROOT]yum localinstall *.rpm
+    scl enable devtoolset-7 bash
+    source /opt/rh/devtoolset-7/enable
+    /home/dmnmkms/.hunter/_Base/Download를 압축한 Khaiii_Download.tgz를 copy하여 미리 생성
+    cp Khaiii_Download.tgz /home/dmnmkms/.hunter/_Base
+  - cd khaiii, mkdir build,cd build, cmake ..
+  - make all, [ROOT]make resource 
+    (#라지모델을 사용할 계획이라면,#make resource 말고 make large_resource)
+  - ./bin/khaiii --rsc-dir=./share/khaiii
+  - ctest
+  - make package_python;cd package_python;pip install .
+
+  10. libs 설치
+  - pip install kss
+  - pip install konlpy
+  - pip install mecab-python3
+usb처리함.(/home/dmnmkms/linx_ol_pkg에 있음)  
+===================================================================================================
+  - wget https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz
+    ./configure;make;make check;su;[ROOT]make install
+  - wget https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz
+    ./autogen.sh;configure;make;su;[ROOT]make install;[ROOT]ldconfig
+===================================================================================================
+  - pip install html5lib
+  - pip install flask
+  - pip install supervisor 
+    echo_supervisord_conf > /application/mkms/conf/supervisord.conf
+    supervisord -c $PROJECT_HOME/conf/supervisord.conf
+

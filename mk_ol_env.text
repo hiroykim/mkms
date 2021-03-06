@@ -4,7 +4,6 @@
   [dmnmkms]
     pip설정
     git설정
-    secret설정
 
 
 04. 개발환경설정
@@ -33,6 +32,7 @@
     export PROJECT_HOME=/application/mkms
     export ES1_HOME=/application/elasticsearch1
     export ES2_HOME=/application/elasticsearch2
+    export LOG_HOME=/logs/mkms
     source venv/bin/activate
     export http_proxy=http://192.168.141.XX:12128
     export https_proxy=http://192.168.141.XX:12128
@@ -54,6 +54,8 @@
     .bashrc -> source /opt/rh/devtoolset-7/enable
 ===================================================================================================
     다시 yum localinstall *.rpm이 성공함????????
+    scl enable devtoolset-7 bash
+    source /opt/rh/devtoolset-7/enable
     /home/dmnmkms/.hunter/_Base/Download를 압축한 Khaiii_Download.tgz를 copy하여 미리 생성
     cp Khaiii_Download.tgz /home/dmnmkms/.hunter/_Base
   - cd khaiii, mkdir build,cd build, cmake ..
@@ -67,14 +69,12 @@
   - pip install kss
   - pip install konlpy
   - pip install mecab-python3
+  - pip install supervisor 
+      echo_supervisord_conf > /application/mkms/conf/supervisord.conf
+      supervisord -c $PROJECT_HOME/conf/supervisord.conf
 
-2전송실패  
+usb처리함.  
 ===================================================================================================
-  - [ROOT]bash <(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)
-  - git clone https://bitbucket.org/eunjeon/mecab-python-0.996.git
-    python setup.py build
-    python setup.py install
-    [ROOT]vi /etc/ld.so.conf <- /usr/local/lib 추가
   - wget https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz
     ./configure;make;make check;su;#make install
   - wget https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz
