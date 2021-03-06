@@ -1,3 +1,28 @@
+#PUT /mkms_qna_v001
+#python hello_elastic.py
+
+GET /_cat/
+GET mkms_qna_v001
+GET mkms_qna_v001/_mapping?pretty
+
+POST /mkms_qna_v001/_doc/ID_20210306_01
+{
+  "SUBJECT": "입력테스트_1",
+  "URL": "URL입니다1.",
+  "subject": "매핑테스트1",
+  "url": "test1",
+  "CONTENT": "컨텐츠입니다1."
+}
+
+POST /mkms_qna_v001/_doc/ID_20210306_02
+{
+  "SUBJECT": "입력테스트_2",
+  "URL": "URL입니다2.",
+  "subject": "매핑테스트2",
+  "url": "test2",
+  "CONTENT": "컨텐츠입니다2."
+}
+
 GET mkms_qna_v001/_search
 {
   "query": {
@@ -5,7 +30,64 @@ GET mkms_qna_v001/_search
   }
 }
 
-GET /_cat/
+GET mkms_qna_v001/_doc/ID_20210306_01
+GET mkms_qna_v001/_doc/ID_20210306_02
 
-GET mkms_qna_v001
-GET mkms_qna_v001/_mapping
+DELETE /mkms_qna_v001/_doc/ID_20210306_01
+DELETE /mkms_qna_v001
+
+#####################################################################
+
+PUT /movie
+{
+  "settings":{
+    "number_of_shards": 3,
+    "number_of_replicas": 2
+  },
+  "mappings": {
+
+      "properties": {
+        "movieCd": { "type" : "integer"},
+        "movieNm": { "type" : "text"},
+        "movieNmEn": { "type" : "integer"},
+        "openDt": { "type" : "date"},
+        "typeNm": { "type" : "keyword"},
+        "prdtStatNm": { "type" : "keyword"}
+      }
+
+  }
+}
+
+POST /move/_doc/
+{
+        "movieCd": "1",
+        "movieNm": "살아남은 아이",
+        "movieNmEn": "Last Child",
+        "openDt": "2017",
+        "typeNm": "2017-10-20",
+        "prdtStatNm": "장편"
+}
+
+POST /move/1
+{
+        "movieCd": 1,
+        "movieNm": "살아남은 아이",
+        "movieNmEn": "Last Child",
+        "openDt": "2017",
+        "typeNm": "2017-10-20",
+        "prdtStatNm": "장편"
+}
+
+GET /movie/
+GET /movie/_mapping
+GET /movie/_doc/1
+GET /movie/_search?q=장편
+GET movie/_search?size=100
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+DELETE movie
+DELETE movie/1
