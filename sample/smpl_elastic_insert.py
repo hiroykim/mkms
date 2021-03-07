@@ -12,9 +12,9 @@ from elasticsearch import Elasticsearch
 
 
 doc = {
-	  "SUBJECT": "입력테스트_3",
-	  "URL": "URL입니다3.",
-	  "CONTENT": "컨텐츠입니다3."
+	  "SUBJECT": "입력테스트_33",
+	  "URL": "URL입니다33.",
+	  "CONTENT": "컨텐츠입니다33."
       }
 
 def do_something_insert():

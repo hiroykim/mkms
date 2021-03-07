@@ -1,4 +1,5 @@
 from flask import Flask, Response, make_response
+from sample import smpl_elastic_select
 
 app = Flask(__name__)
 
@@ -9,4 +10,6 @@ def res1():
 
 @app.route("/")
 def helloworld():
-	return "Hello Flask"
+	res = smpl_elastic_select.do_something_select_all()
+	#res = smpl_elastic_select.do_something_select_all_source()
+	return res
