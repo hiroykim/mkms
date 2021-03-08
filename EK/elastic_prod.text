@@ -1,6 +1,7 @@
 centos
 [임시 설정, 영구 설정 해야함]
-  1. 
+  1. sysctl -w vm.max_map_count = 262144
+     sysctl -a | grep map_count
 [영구 설정, 재부팅 필요함]
   0. hostname, hosts파일 수정해야 함.
      복사된 /data/elasticsearch#/node를 삭제함.
