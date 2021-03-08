@@ -2,6 +2,7 @@
 /etc/security/limits.conf
     dmnmkms         soft     nofile          81920
     dmnmkms         hard     nofile          81920
+    dmnmkms          -       nproc           81920
     dmnmkms          -       memloc          umlimited
 
 [elasticsearch.yml]
