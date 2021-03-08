@@ -1,0 +1,16 @@
+cluster.name: clust-mkms
+node.name: ndkms-4
+path.data: /data/elasticsearch4
+path.logs: /logs/elasticsearch4
+network.host: _site_
+node.master: false
+node.data: true
+discovery.seed_hosts: ["192.168.233.128","192.168.233.129"]
+cluster.initial_master_nodes: ["192.168.233.128","192.168.233.129"]
+
+#http.port: 9201
+#transport.tcp.port: 9301
+#node.attr.rack: r1
+#bootstrap.memory_lock: true
+#gateway.recover_after_nodes: 3
+#action.destructive_requires_name: true
