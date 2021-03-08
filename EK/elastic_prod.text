@@ -6,8 +6,7 @@ centos
   0. hostname, hosts파일 수정해야 함.
      복사된 /data/elasticsearch#/node를 삭제함.
   1. /etc/security/limits.conf
-    dmnmkms         soft     nofile          81920
-    dmnmkms         hard     nofile          81920
+    dmnmkms          -       nofile          81920
     dmnmkms          -       memloc          umlimited
   2. /etc/sysctl.conf
     vm.max_map_count=262144
