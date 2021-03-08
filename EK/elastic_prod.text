@@ -1,7 +1,7 @@
 centos
-  1. ulimit -n 81902 ; ulimit -a
-  2. /etc/security/limits.conf
-  3. sysctl -w ?=?  
+  1. /etc/security/limits.conf
+    dmnmkms         soft     nofile          81920
+    dmnmkms         hard     nofile          81920
 
 elasticsearch1
   elasticsearch.yml
