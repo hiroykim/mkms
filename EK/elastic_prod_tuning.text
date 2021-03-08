@@ -1,0 +1,6 @@
+elasticsearch.yml
+  bootstrap.memory_lock: true
+
+jvm.options
+  -Xms1g
+  -Xmx1g
