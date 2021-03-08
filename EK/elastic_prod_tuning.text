@@ -1,6 +1,12 @@
-elasticsearch.yml
+[centos]
+/etc/security/limits.conf
+    dmnmkms         soft     nofile          81920
+    dmnmkms         hard     nofile          81920
+    dmnmkms          -       memloc          umlimited
+
+[elasticsearch.yml]
   bootstrap.memory_lock: true
 
-jvm.options
+[jvm.options]
   -Xms1g
   -Xmx1g
