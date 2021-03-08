@@ -1,0 +1,8 @@
+centos
+  1. ulimit -n 81902 ; ulimit -a
+  2. /etc/security/limits.conf
+  3. sysctl -w ?=?  
+
+elasticsearch1
+  elasticsearch.yml
+    
