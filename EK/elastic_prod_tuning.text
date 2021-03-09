@@ -3,7 +3,7 @@
     dmnmkms         soft     nofile          81920
     dmnmkms         hard     nofile          81920
     dmnmkms          -       nproc           81920
-    dmnmkms          -       memloc          umlimited
+    dmnmkms          -       memlock         umlimited
 
 [elasticsearch.yml]
   bootstrap.memory_lock: true
